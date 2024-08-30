@@ -1,5 +1,5 @@
 import streamlit as st
-
+import datetime
 '''
 # TaxiFareModel front
 '''
@@ -21,6 +21,32 @@ Either as with the title by just creating a string (or an f-string). Or as with 
 - dropoff latitude
 - passenger count
 '''
+import streamlit as st
+
+
+# Create a title for the app
+st.title("Ride Parameters")
+
+# Ask for date and time
+date_time = st.date_input("Select date and time:", value=datetime.date.today(), key="date_time")
+
+# Ask for pickup location
+pickup_longitude = st.number_input("Pickup longitude:", value=40, step=0.01, key="pickup_longitude")
+pickup_latitude = st.number_input("Pickup latitude:", value=40, step=0.01, key="pickup_latitude")
+
+# Ask for dropoff location
+dropoff_longitude = st.number_input("Dropoff longitude:", value=40 , step=0.01, key="dropoff_longitude")
+dropoff_latitude = st.number_input("Dropoff latitude:", value=40, step=0.01, key="dropoff_latitude")
+
+# Ask for passenger count
+passenger_count = st.number_input("Number of passengers:", value=1, step=1, key="passenger_count")
+
+# Display the input values
+st.write("You selected:")
+st.write(f"Date and time: {date_time}")
+st.write(f"Pickup location: ({pickup_longitude}, {pickup_latitude})")
+st.write(f"Dropoff location: ({dropoff_longitude}, {dropoff_latitude})")
+st.write(f"Number of passengers: {passenger_count}")
 
 '''
 ## Once we have these, let's call our API in order to retrieve a prediction
