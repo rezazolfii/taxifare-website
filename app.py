@@ -83,13 +83,12 @@ params = {
     "passenger_count": passenger_count
 }
 
-params
-# response = requests.get("https://taxifare.lewagon.ai/predict", params=params)
+response = requests.get("https://taxifare.lewagon.ai/predict", params=params)
 
 
-# if response.status_code == 200:
+if response.status_code == 200:
 
-#     prediction = response.json()
-#     st.write("Prediction:", prediction)
-# else:
-#     st.write("Error:", response.status_code)
+    prediction = response.json()
+    st.write("Prediction:", prediction)
+else:
+    st.write("Error:", response.status_code)
