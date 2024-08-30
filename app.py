@@ -29,7 +29,8 @@ import streamlit as st
 st.title("Ride Parameters")
 
 # Ask for date and time
-date_time = st.time_input("Select date and time:", value=datetime.datetime.now(), key="pickup_datetime")
+pickup_date = st.date_input("Select date:", value=datetime.date.today(), key="pickup_date")
+pickup_time = st.time_input("Select time:", value=datetime.datetime.now(), key="pickup_time")
 
 # Ask for pickup location
 pickup_longitude = st.number_input("Pickup longitude:", value=40.0, step=0.01, key="pickup_longitude")
@@ -44,7 +45,7 @@ passenger_count = st.number_input("Number of passengers:", value=1, step=1, key=
 
 # Display the input values
 st.write("You selected:")
-st.write(f"Date and time: {date_time}")
+st.write(f"Date and time: {pickup_date} {pickup_time}")
 st.write(f"Pickup location: ({pickup_longitude}, {pickup_latitude})")
 st.write(f"Dropoff location: ({dropoff_longitude}, {dropoff_latitude})")
 st.write(f"Number of passengers: {passenger_count}")
@@ -74,7 +75,7 @@ if url == 'https://taxifare.lewagon.ai/predict':
 ## Finally, we can display the prediction to the user
 '''
 params = {
-    "pickup_datetime": date_time,
+    "pickup_datetime": f"{pickup_date} {pickup_time}",
     "pickup_longitude": pickup_longitude,
     "pickup_latitude": pickup_latitude,
     "dropoff_longitude": dropoff_longitude,
