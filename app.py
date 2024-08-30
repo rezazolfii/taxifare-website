@@ -88,7 +88,7 @@ response = requests.get("https://taxifare.lewagon.ai/predict", params=params)
 
 if response.status_code == 200:
 
-    prediction = response.json()["prediction"]
+    prediction = response.json()["fare"]
     st.write("Prediction:", prediction)
 else:
     st.write("Error:", response.status_code)
