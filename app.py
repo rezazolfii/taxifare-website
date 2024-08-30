@@ -31,12 +31,12 @@ st.title("Ride Parameters")
 date_time = st.date_input("Select date and time:", value=datetime.date.today(), key="date_time")
 
 # Ask for pickup location
-pickup_longitude = st.number_input("Pickup longitude:", value=40, step=0.01, key="pickup_longitude")
-pickup_latitude = st.number_input("Pickup latitude:", value=40, step=0.01, key="pickup_latitude")
+pickup_longitude = st.number_input("Pickup longitude:", value=40.0, step=0.01, key="pickup_longitude")
+pickup_latitude = st.number_input("Pickup latitude:", value=40.0, step=0.01, key="pickup_latitude")
 
 # Ask for dropoff location
-dropoff_longitude = st.number_input("Dropoff longitude:", value=40 , step=0.01, key="dropoff_longitude")
-dropoff_latitude = st.number_input("Dropoff latitude:", value=40, step=0.01, key="dropoff_latitude")
+dropoff_longitude = st.number_input("Dropoff longitude:", value=40.0 , step=0.01, key="dropoff_longitude")
+dropoff_latitude = st.number_input("Dropoff latitude:", value=40.0, step=0.01, key="dropoff_latitude")
 
 # Ask for passenger count
 passenger_count = st.number_input("Number of passengers:", value=1, step=1, key="passenger_count")
