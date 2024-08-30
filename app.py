@@ -29,7 +29,7 @@ import streamlit as st
 st.title("Ride Parameters")
 
 # Ask for date and time
-date_time = st.date_input("Select date and time:", value=datetime.date.today(), key="date_time")
+date_time = st.date_input("Select date and time:", value=datetime.date.today(), key="pickup_datetime")
 
 # Ask for pickup location
 pickup_longitude = st.number_input("Pickup longitude:", value=40.0, step=0.01, key="pickup_longitude")
@@ -82,12 +82,12 @@ params = {
     "passenger_count": passenger_count
 }
 
-# Call our API using the requests package
+
 response = requests.get("https://taxifare.lewagon.ai/predict", params=params)
 
-# Check if the API call was successful
+
 if response.status_code == 200:
-    # Retrieve the prediction from the JSON returned by the API
+
     prediction = response.json()["prediction"]
     st.write("Prediction:", prediction)
 else:
