@@ -1,5 +1,6 @@
 import streamlit as st
 import datetime
+import requests
 '''
 # TaxiFareModel front
 '''
@@ -72,3 +73,22 @@ if url == 'https://taxifare.lewagon.ai/predict':
 
 ## Finally, we can display the prediction to the user
 '''
+params = {
+    "pickup_datetime": date_time,
+    "pickup_longitude": pickup_longitude,
+    "pickup_latitude": pickup_latitude,
+    "dropoff_longitude": dropoff_longitude,
+    "dropoff_latitude": dropoff_latitude,
+    "passenger_count": passenger_count
+}
+
+# Call our API using the requests package
+response = requests.get("https://taxifare.lewagon.ai/predict", params=params)
+
+# Check if the API call was successful
+if response.status_code == 200:
+    # Retrieve the prediction from the JSON returned by the API
+    prediction = response.json()["prediction"]
+    st.write("Prediction:", prediction)
+else:
+    st.write("Error:", response.status_code)
