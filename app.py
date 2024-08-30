@@ -29,7 +29,7 @@ import streamlit as st
 st.title("Ride Parameters")
 
 # Ask for date and time
-date_time = st.date_input("Select date and time:", value=datetime.date.today(), key="pickup_datetime")
+date_time = st.time_input("Select date and time:", value=datetime.datetime.now(), key="pickup_datetime")
 
 # Ask for pickup location
 pickup_longitude = st.number_input("Pickup longitude:", value=40.0, step=0.01, key="pickup_longitude")
